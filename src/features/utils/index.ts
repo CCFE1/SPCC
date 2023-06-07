@@ -119,11 +119,11 @@ export const getTimeBetweenTwoHours = (
   initDate: Date, 
   finalDate: Date
 ) => {
-  const diferencia = finalDate - initDate; // diferencia en milisegundos
+  const diferencia: number = finalDate.getTime() - initDate.getTime(); // diferencia en milisegundos
 
-  let segundos = Math.floor(diferencia / 1000);
-  let minutos = Math.floor(segundos / 60);
-  let horas = Math.floor(minutos / 60);
+  let segundos: number = Math.floor(diferencia / 1000);
+  let minutos: number = Math.floor(segundos / 60);
+  let horas: number = Math.floor(minutos / 60);
 
   segundos = segundos % 60;
   minutos = minutos % 60;
