@@ -1,0 +1,17 @@
+{
+  "folders":
+  [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "SublimeLinter.linters.eslint.disable": true,
+    "SublimeLinter.linters.eslint-remote.enable": true,
+    "SublimeLinter.linters.eslint-remote.command": "npx eslint",
+    "SublimeLinter.linters.eslint-remote.args": ["--config", ".eslintrc.json"],
+    "SublimeLinter.linters.eslint-remote.env": {
+      "NODE_ENV": "development"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.formGroup {
+  display: flex;
+  flex-flow: column;
+  padding: 0.5rem 0.2rem;
+}
+
+/*/////////////////////////*/
+.f {
+  display: flex;
+  justify-content: center;
+}
+
+.marginBottom {
+  margin-bottom: 0.5rem;
+}

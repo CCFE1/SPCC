@@ -1,0 +1,21 @@
+.input {
+  background: #fafafa;
+  border-color: #d1d1d1;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  flex-grow: 1;
+  padding: 0 6px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:disabled {
+  color: #999;
+}
+
+.inputContainer {
+  display: flex;
+  flex-grow: 1;
+}

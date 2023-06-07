@@ -1,0 +1,9 @@
+.mainItem {
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.staticBackground {
+  background-color: #eef0f2;
+}

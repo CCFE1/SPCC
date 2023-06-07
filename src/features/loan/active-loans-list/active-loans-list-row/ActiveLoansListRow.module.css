@@ -1,0 +1,23 @@
+.tBodyFixedTr {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 7.5% 4.5% 25% 20% repeat(3, 4.5%) 10% 1fr 10%;
+}
+
+.tBodyFixedTr {
+  border-top: 2px solid var(--material-white);
+  border-bottom: 2px solid var(--material-white);
+  transition: all 0.1s ease-out 0s;
+}
+
+.tBodyFixedTr:hover {
+  border-top: 2px solid var(--border-light-gray);
+  border-bottom: 2px solid var(--border-light-gray);
+}
+
+.tBodyFixedTr td {
+  text-align: center;
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  padding: 0.4rem 0.1rem;
+}

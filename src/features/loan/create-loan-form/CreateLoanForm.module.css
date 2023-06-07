@@ -1,0 +1,40 @@
+.createLoan {
+  padding: 0.2rem 0.8rem;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bottomPane {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-gap: 0.7rem;
+  padding: 0.2rem 0 0.3rem 0;
+  width: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-flow: column;
+  padding: 0.5rem 0.2rem;
+}
+
+.btnContainer {
+  display: flex;
+  flex-flow: column;
+}
+
+.topPane {
+  display: grid;
+  grid-template-columns: 1fr 8.4vw repeat(2, 20vw) 8.4vw 11vw;
+}
+
+/*/////////////////////////*/
+
+.marginBottom {
+  margin-bottom: 0.5rem;
+}
+
+.marginLeft {
+  margin-left: 0.2rem;
+}

@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding: 0 0.8rem;
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  cursor: default;
+}

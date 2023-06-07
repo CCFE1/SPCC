@@ -1,0 +1,72 @@
+:root {
+  --white: #fff;
+  --material-white: #fafafa;
+  --light-gray: rgba(0, 0, 0, 0.07);
+
+  --border-light-gray: #dcdcdc;
+  --hover-light-gray: #f1f1f1;
+
+  --base-font-color: #191919;
+
+  /* Sizes */
+  --header-height: 8vh;
+  --radius-medium: 8px;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  color: var(--base-font-color);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--base-font-color);
+  text-decoration: none;
+}
+
+/*
+  ICON STYLES
+*/
+.md-40 {
+  font-size: 40px;
+}
+.md-48 {
+  font-size: 48px;
+}
+
+/*
+* SCROLLBAR
+*
+*/
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #fafafa; /* color of the tracking area */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d8d8de;
+  border-radius: 15px;
+  border: 1.8px solid #fafafa;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  border: 1.8px solid #d8d8de;
+}
+
+.f-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

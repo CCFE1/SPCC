@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@store/*": ["src/store/*"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/styles/*"],
+      "@models/*": ["src/models/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@ui/*": ["src/features/@ui/*"],
+      "@loan/*": ["src/features/loan/*"],
+      "@utils/*": ["src/features/utils/*"],
+      "@users/*": ["src/features/users/*"],
+      "@reports/*": ["src/features/reports/*"],
+      "@courses/*": ["src/features/courses/*"],
+      "@devices/*": ["src/features/devices/*"],
+      "@schedule/*": ["src/features/schedule/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

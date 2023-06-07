@@ -1,0 +1,10 @@
+.custom {
+  font-size: 18px;
+  width: 6.1rem;
+  text-align: center;
+  border: none;
+}
+
+.custom:focus {
+  outline: none;
+}

@@ -1,0 +1,52 @@
+.mainContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  align-self: stretch;
+  flex-grow: 1;
+  margin-top: 1rem;
+}
+
+.tableFixHead {
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  display: flex;
+  flex-grow: 1;
+  width: 95%;
+  border-top-left-radius: var(--radius-medium);
+  border-top-right-radius: var(--radius-medium);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hack descubierto: cambiar cuando se encuentre una solucion viable */
+.tableFixHeadBody {
+  position: inherit;
+  /* Height impone una altura base, no importa que sea una altura minima */
+  height: 1vh;
+  /* 
+	*	flex grow en este especifico caso, anula height y hace que la altura de la caja ocupe todo el espacio.
+	*  Pero ésto manteniendo la altura como si fuera una altura absoluta 
+	*  en la caja, evitando que la página se desface a pesar de que el padre
+	*  tiene una altura relativa gracias a flex-grow: 1.
+	* *****/
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.activeListTable {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  cursor: default;
+  user-select: none;
+}
+
+.tHeadFixedTr {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 7.5% 4.5% 25% 20% repeat(3, 4.5%) 10% 1fr 10%;
+  grid-template-rows: 5.7vh;
+}
