@@ -61,14 +61,20 @@ export default function GenerateReports() {
           <span className={styles.center}>Reporte Personalizado</span>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div>
-              <div style={{
-                display: "flex",
-                flexFlow: "column",
-                marginBottom: ".5rem"
-              }}>
-                <span style={{
-                marginBottom: ".5rem"
-              }}>Fecha Inicio</span>
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  marginBottom: ".5rem",
+                }}
+              >
+                <span
+                  style={{
+                    marginBottom: ".5rem",
+                  }}
+                >
+                  Fecha Inicio
+                </span>
                 <DesktopDatePicker
                   views={["month", "year"]}
                   onChange={(value: any) => {
@@ -76,14 +82,20 @@ export default function GenerateReports() {
                   }}
                 />
               </div>
-              <div style={{
-                display: "flex",
-                flexFlow: "column",
-                marginBottom: ".5rem"
-              }}>
-                <span style={{
-                marginBottom: ".5rem"
-              }}>Fecha Final</span>
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "column",
+                  marginBottom: ".5rem",
+                }}
+              >
+                <span
+                  style={{
+                    marginBottom: ".5rem",
+                  }}
+                >
+                  Fecha Final
+                </span>
                 <DesktopDatePicker
                   views={["month", "year"]}
                   onChange={(value: any) => {
