@@ -6,7 +6,6 @@ import { fetchReports, selectStatus, setStatus } from "@reports/reportsSlice";
 
 // Idle
 import { Button } from "@mui/material";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -61,26 +60,38 @@ export default function GenerateReports() {
         <section className={styles.bottomPane}>
           <span className={styles.center}>Reporte Personalizado</span>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer
-              components={["DesktopDatePicker", "DesktopDatePicker"]}
-            >
-              <DemoItem label="Hora de inicio">
+            <div>
+              <div style={{
+                display: "flex",
+                flexFlow: "column",
+                marginBottom: ".5rem"
+              }}>
+                <span style={{
+                marginBottom: ".5rem"
+              }}>Fecha Inicio</span>
                 <DesktopDatePicker
                   views={["month", "year"]}
                   onChange={(value: any) => {
                     setInitDate(value);
                   }}
                 />
-              </DemoItem>
-              <DemoItem label="Hora de Fin">
+              </div>
+              <div style={{
+                display: "flex",
+                flexFlow: "column",
+                marginBottom: ".5rem"
+              }}>
+                <span style={{
+                marginBottom: ".5rem"
+              }}>Fecha Final</span>
                 <DesktopDatePicker
                   views={["month", "year"]}
                   onChange={(value: any) => {
                     setFinalDate(value);
                   }}
                 />
-              </DemoItem>
-            </DemoContainer>
+              </div>
+            </div>
           </LocalizationProvider>
           <div
             className={styles.center}
