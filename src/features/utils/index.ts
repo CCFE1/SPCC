@@ -42,7 +42,7 @@ export const setHourToDate = (date: Date, hour: number): Date => {
 };
 
 export const setDayToDate = (date: Date, day: number): Date => {
-  const dayAdded = dayjs(date).day(day).toDate();
+  const dayAdded = dayjs(date).date(day).toDate();
   return dayAdded;
 }
 
