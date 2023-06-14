@@ -17,27 +17,27 @@ const schema: any = [
   {
     column: "Nombre del dispositivo",
     type: String,
-    value: (row) => row["Nombre del dispositivo"],
+    value: (row: any) => row["Nombre del dispositivo"],
   },
   {
     column: "Tiempo de uso",
     type: String,
-    value: (row) => row["Tiempo de uso"],
+    value: (row: any) => row["Tiempo de uso"],
   },
   {
     column: "Numero de veces usado",
     type: Number,
-    value: (row) => row["Numero de veces usado"],
+    value: (row: any) => row["Numero de veces usado"],
   },
   {
     column: "Desde",
     type: String,
-    value: (row) => row.desde,
+    value: (row: any) => row.desde,
   },
   {
     column: "Hasta",
     type: String,
-    value: (row) => row.hasta,
+    value: (row: any) => row.hasta,
   },
 ];
 
