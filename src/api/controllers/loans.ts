@@ -33,6 +33,8 @@ export const uploadLoan = async (
     }
   );
 
+  console.log(dispositivos);
+
   const prestamo: Prestamo = {
     ...data,
     dispositivos,
