@@ -17,7 +17,7 @@ export default function DateSelector(props: DateSelectorProps) {
   const date: Date = useAppSelector(selectDate);
 
   const [minDate] = useState<Date>(getDateFromISOFormat());
-  const [maxDate] = useState<Date>(addDays(minDate, 7));
+  const [maxDate] = useState<Date>(addDays(minDate, 15));
   const [lastDate, setLastDate] = useState<Date>(date);
   useEffect(() => {
     if (areSameDates(lastDate, date)) return;

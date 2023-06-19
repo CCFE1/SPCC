@@ -37,7 +37,7 @@ export default function ReturnLoanButton(props: ReturnLoanButtonProps) {
     setItemList(dispositivos);
     setActualChecked(dispositivos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [props.dispositivos]);
 
   // Esto obtiene de forma mas precisa en valor actual de
   // los dispositivos seleccionados al momento de enviar la lista al

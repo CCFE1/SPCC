@@ -67,7 +67,6 @@ function CreateLoanForm() {
     };
 
     // Si el usuario es null, significa que no hay token
-    // ésto solo es por si acaso, en teoria nadie puede acceder al sistema sin un token.
     const userData: any = decodeToken();
     if (!userData) {
       localStorage.clear();

@@ -43,9 +43,6 @@ export default function DeviceSelector({ isLoading }: { isLoading?: any }) {
     itemsSelected: MultiValue<Item>,
     { action }: ActionMeta<any>
   ) => {
-    console.log("--------------");
-    console.log(itemsSelected);
-    console.log(action);
     const actions: any = {
       "select-option": () =>
         selectOption(itemsSelected[itemsSelected.length - 1]),
