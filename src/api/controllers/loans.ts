@@ -125,10 +125,6 @@ export const returnLoan = async (
 ) => {
   const { loanID, returnedDevices }: ReturnLoanData = req.body;
 
-  console.log("se va a regresar un prestamo");
-  console.log(loanID);
-  console.log(returnedDevices);
-
   // Obteniendo préstamo
   let result: DbServiceResponse = await getOne(loanCollection, loanID);
   if (result.err || !result.data || !returnedDevices.length) {
@@ -137,8 +133,6 @@ export const returnLoan = async (
       msg: "Error al regresar el préstamo en la base de datos",
     });
   }
-  console.log("Prestamo de la base");
-  console.log(result);
 
   // Si el préstamo ya está inactivo no se deberia hacer algo
   const loan: Prestamo = result.data;
@@ -153,7 +147,7 @@ export const returnLoan = async (
   for (let dispositivo of returnedDevices) {
     const result: DbServiceResponse = await updateOne(
       deviceCollection,
-      { _id: dispositivo._id },
+      { _id: dispositivo.id },
       {
         $inc: { prestado: -dispositivo.value },
       }
