@@ -147,7 +147,7 @@ export const returnLoan = async (
   for (let dispositivo of returnedDevices) {
     const result: DbServiceResponse = await updateOne(
       deviceCollection,
-      { _id: dispositivo.id },
+      dispositivo.id,
       {
         $inc: { prestado: -dispositivo.value },
       }
@@ -280,7 +280,7 @@ export const updateLoan = async (
     deletedDevices.forEach(async (deletedDevice: any) => {
       const response: DbServiceResponse = await updateOne(
         deviceCollection,
-        { _id: deletedDevice.deviceID },
+        deletedDevice.deviceID,
         {
           $inc: { prestado: -deletedDevice.difference },
         }
@@ -304,7 +304,7 @@ export const updateLoan = async (
     changedDevices.forEach(async (changedDevice: ModifyData) => {
       const result: DbServiceResponse = await updateOne(
         deviceCollection,
-        { _id: changedDevice.deviceID },
+        changedDevice.deviceID,
         {
           $inc: { prestado: changedDevice.difference },
         }
