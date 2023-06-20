@@ -51,6 +51,8 @@ export const uploadLoan = async (
       }
     );
 
+    console.log(result);
+
     // Si falla la actualización
     if (result.err) {
       return res.status(500).json({
