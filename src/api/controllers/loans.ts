@@ -153,7 +153,7 @@ export const returnLoan = async (
   for (let dispositivo of returnedDevices) {
     const result: DbServiceResponse = await updateOne(
       deviceCollection,
-      { _id: dispositivo.id },
+      { _id: dispositivo._id },
       {
         $inc: { prestado: -dispositivo.value },
       }
