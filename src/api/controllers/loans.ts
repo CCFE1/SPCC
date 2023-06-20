@@ -125,6 +125,7 @@ export const returnLoan = async (
 ) => {
   const { loanID, returnedDevices }: ReturnLoanData = req.body;
 
+  console.log(returnedDevices);
   // Obteniendo préstamo
   let result: DbServiceResponse = await getOne(loanCollection, loanID);
   if (result.err || !result.data || !returnedDevices.length) {
