@@ -45,7 +45,7 @@ export const uploadLoan = async (
   for (let dispositivo of dispositivos) {
     const result: DbServiceResponse = await updateOne(
       deviceCollection,
-      { _id: dispositivo._id },
+      dispositivo._id,
       {
         $inc: { prestado: dispositivo.localPrestado },
       }
