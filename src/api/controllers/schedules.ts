@@ -17,14 +17,6 @@ export const uploadSchedules = async (
   classroomsCollection: Collection
 ) => {
   const { borrar, schedules } = req.body;
-/*
-  deleteAll(coursesCollection);
-  deleteAll(teachersCollection);
-  deleteAll(classroomsCollection);
-  return res.status(401).json({
-    err: true,
-    msg: "asd",
-  })*/
 
   // Obtener los maestros de los horarios enviados
   const newTeachers: string[] = removeDupString(
@@ -148,7 +140,7 @@ export const uploadSchedules = async (
     const asignaciones = allOfActualCourse.map((course: any) => {
       // Obtener los nombres de los dias que tiene esa asignacion
       const dayNames = Object.keys(course).filter(
-        (attName) =>
+        (attName: any) =>
           attName !== "EE" &&
           attName !== "NRC" &&
           attName !== "CATEDRATICO" &&
