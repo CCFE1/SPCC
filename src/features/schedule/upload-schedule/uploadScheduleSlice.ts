@@ -22,7 +22,7 @@ export const uploadSchedules = createAsyncThunk(
   "schedules/uploadSchedules",
   async (schedules: any) => {
     try {
-    const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -32,7 +32,7 @@ export const uploadSchedules = createAsyncThunk(
       const { data, status } = await axios.post(
         `/api/v1/schedules`,
         schedules,
-        config
+        config,
       );
 
       return {
@@ -41,7 +41,7 @@ export const uploadSchedules = createAsyncThunk(
     } catch (err: any) {
       throw new Error(err);
     }
-  }
+  },
 );
 
 ///////////////////////////

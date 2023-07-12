@@ -15,14 +15,14 @@ export const clearAction = (setValue: any): void => {
 // Obtener los cursos de hoy
 export const getTodayCourses = (
   nrcs: NrcTag[],
-  selectedItem: any
+  selectedItem: any,
 ): NrcTag[] => {
   return nrcs.filter((nrc: NrcTag) => nrc.materia._id === selectedItem._id);
 };
 
 // Obtener los horarios de los cursos de hoy
 export const getTodayCoursesSchedule = (
-  todayCourses: NrcTag[]
+  todayCourses: NrcTag[],
 ): (NrcTag | undefined)[] => {
   const dayName = getDayName();
   return todayCourses
@@ -48,7 +48,7 @@ export const getTodayCoursesSchedule = (
 
 // Ordenar los horarios de los cursos de hoy
 export const getOrderedSchedules = (
-  schedules: (NrcTag | undefined)[]
+  schedules: (NrcTag | undefined)[],
 ): (NrcTag | undefined)[] => {
   return !schedules
     ? []
@@ -78,7 +78,7 @@ export const thereAreConsecutives = (horariosActuales: NrcTag[]): boolean => {
 // Obtiene el curso mas cercano
 export const getNearestCourse = (
   horariosActuales: (NrcTag | undefined)[],
-  areConsecutive: boolean
+  areConsecutive: boolean,
 ): NrcTag | undefined => {
   // Obtener cercano
   const nearest: any = horariosActuales.filter((course: any) => {
@@ -91,7 +91,7 @@ export const getNearestCourse = (
 export const setLoanData = (
   setValue: any,
   nearestCourse: NrcTag,
-  dispatch: any
+  dispatch: any,
 ): void => {
   // Setteando nrc
   setValue("nrcs", nearestCourse);
@@ -105,7 +105,7 @@ export const setLoanData = (
           label: nearestCourse.maestro.nombre,
           value: nearestCourse.maestro._id,
         }
-      : ""
+      : "",
   );
 
   // Setteando aulas

@@ -72,12 +72,12 @@ export default function CourseSelector(props: SelectorProps) {
 
     // Saber si existen horarios consecutivos
     const areConsecutive: boolean = thereAreConsecutives(
-      horariosActuales as NrcTag[]
+      horariosActuales as NrcTag[],
     );
     // Conseguir el horario mas cercano a la hora mas cercana
     const nearestCourse: NrcTag | undefined = getNearestCourse(
       horariosActuales,
-      areConsecutive
+      areConsecutive,
     );
     if (!nearestCourse) {
       return;
@@ -99,7 +99,7 @@ export default function CourseSelector(props: SelectorProps) {
     } catch (e: any) {
       openDialog(
         "Lo sentimos",
-        "Esta acción no está permitida por el momento."
+        "Esta acción no está permitida por el momento.",
       );
     }
   };

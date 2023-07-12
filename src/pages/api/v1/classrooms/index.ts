@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { error, collections }: DBCollectionsResponse = await getDBCollections([
     "aulas",
   ]);
-  
+
   if (error || !collections) {
     return res.status(500).json({
       msg: "Error al conectar con la base de datos",

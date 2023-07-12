@@ -21,7 +21,7 @@ export const bottomListOptions: DrawerOption[] = [
     label: "Modo Oscuro",
     link: "",
     icon: "dark_mode",
-  },  
+  },
   {
     label: "Cerrar Sesión",
     link: "/",

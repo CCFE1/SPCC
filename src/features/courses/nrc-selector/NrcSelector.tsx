@@ -75,7 +75,7 @@ export default function NrcSelector(props: SelectorProps) {
   const onChange = (selectedItem: NrcTag, { action }: ActionMeta<any>) => {
     const { setValue } = props;
     const options: any = {
-      "clear": () => clearAction(setValue),
+      clear: () => clearAction(setValue),
       "create-option": () => setValue("nrcs", ""),
       "select-option": () => {
         loadLoanData(setValue, selectedItem);

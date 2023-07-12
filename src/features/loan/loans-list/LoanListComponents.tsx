@@ -6,7 +6,7 @@ import DevicesDropdown from "@devices/devices-dropdown/DevicesDropdown";
 // Es una row persoalizada para usar la tabla de mui con la estructura del préstamo
 export const getCustomRow: (row: any, index: number) => JSX.Element = (
   row: any,
-  index: number
+  index: number,
 ) => {
   const labelId = `enhanced-table-checkbox-${index}`;
   const actualDate = new Date(row.creacion);

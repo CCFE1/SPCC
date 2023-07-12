@@ -8,7 +8,7 @@ import {
 
 // Buscar préstamos expirados
 export const searchExpiredLoans = (
-  activeLoans: Prestamo[]
+  activeLoans: Prestamo[],
 ): Prestamo[] | undefined => {
   let isChanged: boolean = false;
   const actualHour: number = getDecimalHour();
@@ -21,13 +21,13 @@ export const searchExpiredLoans = (
       // Agregar hora del préstamo a la fecha del préstamo
       const completeLoanDate: Date = setHourToDate(
         loanDate,
-        prestamo.materia.horario.horaFin
+        prestamo.materia.horario.horaFin,
       );
 
       // Almacenar si la fecha y hora de hoy es mayor a la fecha de préstamo
       const isTodayAfterLoanDate: boolean = isDate1AfterDate2(
         today,
-        completeLoanDate
+        completeLoanDate,
       );
       // Si la fecha del préstamo es mayor a la actual, y no tiene el status de deuda
       // Se actualiza el status a deuda.
@@ -40,7 +40,7 @@ export const searchExpiredLoans = (
       }
 
       return prestamo;
-    }
+    },
   );
 
   return isChanged ? updatedActiveLoans : undefined;
@@ -59,7 +59,7 @@ export const reorderActiveLoans = (loans: Prestamo[]): Prestamo[] => {
 // Obtener préstamos dependiendo del status
 const getLoanByStatus = (
   loans: Prestamo[],
-  status: "entrante" | "activo" | "deuda" | "inactivo"
+  status: "entrante" | "activo" | "deuda" | "inactivo",
 ): Prestamo[] => {
   return loans.filter((loan: Prestamo) => loan.status === status);
 };

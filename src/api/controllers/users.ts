@@ -8,7 +8,7 @@ import { createToken } from "../services/jwtServices";
 export const login = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  userCollection: Collection
+  userCollection: Collection,
 ) => {
   const { nickname, pass }: Usuario = req.body;
   if (!checkStrings([nickname, pass])) {

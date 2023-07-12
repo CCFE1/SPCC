@@ -15,7 +15,7 @@ export const generateReports = async (
   res: NextApiResponse,
   devicesCollection: Collection,
   loansCollection: Collection,
-  logsCollection: Collection
+  logsCollection: Collection,
 ) => {
   const { type, init, final } = req.body;
 
@@ -94,7 +94,7 @@ export const generateReports = async (
     devices,
     loansBetweenDates,
     initialDate,
-    finalDate
+    finalDate,
   );
 
   return res.json({
@@ -114,7 +114,7 @@ function getDevicesReport(
   devices: any,
   loans: any,
   initialDate: Date,
-  finalDate: Date
+  finalDate: Date,
 ) {
   // Cada préstamo tiene una lista de dispositivos devueltos. Se busca en esa lista cada dispositivo
   // de la base de datos. Y se regresa una lista con los timelogs de cada dispositivo.
@@ -122,7 +122,7 @@ function getDevicesReport(
     const times = loans
       .map((loan: any) => {
         const isDeviceFinded: boolean = loan.dispositivosDevueltos.some(
-          (loanDevice: any) => loanDevice.nombre === device.nombre
+          (loanDevice: any) => loanDevice.nombre === device.nombre,
         );
 
         if (isDeviceFinded) {
@@ -195,7 +195,7 @@ function getDevicesReport(
 function getLogsReport(
   logsRes: DbServiceResponse,
   initialDate: Date,
-  finalDate: Date
+  finalDate: Date,
 ) {
   // Filtrar los logs entre fechas
   const logsBetweenDates: any = logsRes.data.filter((log: any) => {

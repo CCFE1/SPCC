@@ -31,14 +31,14 @@ export const getDayName = (): Semana => {
 // @ MongoConnection
 ////////////////////////////////////
 export const getDBCollections = async (
-  collectionNames: string[]
+  collectionNames: string[],
 ): Promise<DBCollectionsResponse> => {
   try {
     const conn: MongoClient = await clientPromise;
     const db: Db = conn.db("loop");
 
     const collections: Collection[] = collectionNames.map(
-      (collectionName: string) => db.collection(collectionName)
+      (collectionName: string) => db.collection(collectionName),
     );
 
     return {

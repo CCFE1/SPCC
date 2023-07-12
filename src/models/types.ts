@@ -41,7 +41,7 @@ export type LoanInputName =
 
 // @ui alias
 export type Order = "asc" | "desc";
-export type Anchor = 'top' | 'left' | 'bottom' | 'right';
+export type Anchor = "top" | "left" | "bottom" | "right";
 export type DatePickerAdapterProps = FieldRenderProps<Date, HTMLElement> & {
   onChangeCustom?: (value: Date) => void;
 };
@@ -55,7 +55,7 @@ export type StatusObjectType = {
 export type MouseElementFunction = (e: MouseElementEvent) => void;
 export type onChangeFunction = (
   selected: MultiValue<any>,
-  action: ActionMeta<any>
+  action: ActionMeta<any>,
 ) => void;
 
 ////////////////////////////////////

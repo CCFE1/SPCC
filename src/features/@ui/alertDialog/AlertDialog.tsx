@@ -6,7 +6,7 @@ const AlertDialog = withReactContent(
     customClass: {
       htmlContainer: "scrollbar",
     },
-  })
+  }),
 );
 
 export default AlertDialog;

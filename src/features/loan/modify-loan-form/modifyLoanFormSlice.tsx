@@ -30,13 +30,13 @@ export const modifyLoan = createAsyncThunk(
     const { data, status } = await axios.patch(
       `/api/v1/loan/modify`,
       modifyData,
-      config
+      config,
     );
     return {
       data,
       status,
     };
-  }
+  },
 );
 
 ///////////////////////////

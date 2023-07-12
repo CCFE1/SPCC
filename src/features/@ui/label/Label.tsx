@@ -19,6 +19,6 @@ const Label = forwardRef<HTMLSpanElement, LabelProps>((props, ref) => {
   );
 });
 
-Label.displayName = 'Label';
+Label.displayName = "Label";
 
 export default Label;

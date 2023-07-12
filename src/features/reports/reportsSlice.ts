@@ -17,19 +17,18 @@ const initialState: {
 // Async functions
 ///////////////////////////
 
-export const fetchReports = createAsyncThunk("loan/getLoans", async (dataToSend: any) => {
-  const token = localStorage.getItem("token");
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
+export const fetchReports = createAsyncThunk(
+  "loan/getLoans",
+  async (dataToSend: any) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
 
-  const { data } = await axios.post(
-    `/api/v1/reports`,
-    dataToSend,
-    config
-  );
-  return data;
-});
+    const { data } = await axios.post(`/api/v1/reports`, dataToSend, config);
+    return data;
+  },
+);
 
 ///////////////////////////
 // Slice

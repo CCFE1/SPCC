@@ -46,7 +46,7 @@ export default function DnDCard(props: DnDCardProps) {
     // Solo se aceptan los tipos especificados en la constante accept
     const [fileError]: FileRejection[] = fileRejections;
     const invalidType: FileError | undefined = fileError.errors.find(
-      (err) => err.code === "file-invalid-type"
+      (err) => err.code === "file-invalid-type",
     );
     if (invalidType) {
       return openDialog("Error", "Tipo de archivo invalido");
@@ -54,7 +54,7 @@ export default function DnDCard(props: DnDCardProps) {
 
     // El archivo sobrepasa los 5MB
     const tooLarge: FileError | undefined = fileError.errors.find(
-      (err) => err.code === "file-too-large"
+      (err) => err.code === "file-too-large",
     );
     if (tooLarge) {
       return openDialog("Error", "Tamaño del archivo demasiado grande");

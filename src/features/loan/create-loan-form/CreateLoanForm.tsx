@@ -155,13 +155,13 @@ function CreateLoanForm() {
           validationsResult.dialog.title,
           validationsResult.dialog.description,
           sendLoan,
-          args
+          args,
         );
       }
 
       openDialog(
         validationsResult.dialog.title,
-        validationsResult.dialog.description
+        validationsResult.dialog.description,
       );
       return;
     }
@@ -176,13 +176,13 @@ function CreateLoanForm() {
           validationsResult.dialog.title,
           validationsResult.dialog.description,
           sendLoan,
-          args
+          args,
         );
       }
 
       return openDialog(
         validationsResult.dialog.title,
-        validationsResult.dialog.description
+        validationsResult.dialog.description,
       );
     }
 
@@ -281,7 +281,7 @@ function CreateLoanForm() {
   );
 }
 
-export default dynamic (() => Promise.resolve(CreateLoanForm), {ssr: false});
+export default dynamic(() => Promise.resolve(CreateLoanForm), { ssr: false });
 
 interface SendLoanProps {
   form: any;

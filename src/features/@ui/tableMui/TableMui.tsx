@@ -33,11 +33,11 @@ export default function TableMui(props: TableMuiProps) {
     setRows(props.rows);
     let rowsOnMount = stableSort(
       props.rows,
-      getComparator(DEFAULT_ORDER, DEFAULT_ORDER_BY)
+      getComparator(DEFAULT_ORDER, DEFAULT_ORDER_BY),
     );
     rowsOnMount = rowsOnMount.slice(
       0 * DEFAULT_ROWS_PER_PAGE,
-      0 * DEFAULT_ROWS_PER_PAGE + DEFAULT_ROWS_PER_PAGE
+      0 * DEFAULT_ROWS_PER_PAGE + DEFAULT_ROWS_PER_PAGE,
     );
 
     setVisibleRows(rowsOnMount);
@@ -52,15 +52,15 @@ export default function TableMui(props: TableMuiProps) {
 
       const sortedRows = stableSort(
         rows,
-        getComparator(toggledOrder, newOrderBy)
+        getComparator(toggledOrder, newOrderBy),
       );
       const updatedRows = sortedRows.slice(
         page * rowsPerPage,
-        page * rowsPerPage + rowsPerPage
+        page * rowsPerPage + rowsPerPage,
       );
       setVisibleRows(updatedRows);
     },
-    [order, orderBy, page, rowsPerPage, rows]
+    [order, orderBy, page, rowsPerPage, rows],
   );
 
   const handleChangePage = React.useCallback(
@@ -70,7 +70,7 @@ export default function TableMui(props: TableMuiProps) {
       const sortedRows = stableSort(rows, getComparator(order, orderBy));
       const updatedRows = sortedRows.slice(
         newPage * rowsPerPage,
-        newPage * rowsPerPage + rowsPerPage
+        newPage * rowsPerPage + rowsPerPage,
       );
       setVisibleRows(updatedRows);
 
@@ -83,7 +83,7 @@ export default function TableMui(props: TableMuiProps) {
       const newPaddingHeight = 53 * numEmptyRows;
       setPaddingHeight(newPaddingHeight);
     },
-    [order, rows, orderBy, rowsPerPage]
+    [order, rows, orderBy, rowsPerPage],
   );
 
   const handleChangeRowsPerPage = React.useCallback(
@@ -98,14 +98,14 @@ export default function TableMui(props: TableMuiProps) {
       const sortedRows = stableSort(rows, getComparator(order, orderBy));
       const updatedRows = sortedRows.slice(
         0 * updatedRowsPerPage,
-        0 * updatedRowsPerPage + updatedRowsPerPage
+        0 * updatedRowsPerPage + updatedRowsPerPage,
       );
       setVisibleRows(updatedRows);
 
       // There is no layout jump to handle on the first page.
       setPaddingHeight(0);
     },
-    [order, orderBy, rows]
+    [order, orderBy, rows],
   );
 
   return (

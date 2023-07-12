@@ -5,10 +5,7 @@ import { getHeadCells } from "./LoansListData";
 import { getCustomRow } from "./LoanListComponents";
 import { decodeToken } from "@utils/index";
 
-import { 
-  fetchLoans, 
-  selectLoansList 
-} from "./loansListSlice";
+import { fetchLoans, selectLoansList } from "./loansListSlice";
 
 // Aqui la tabla de préstamos con todos los préstamos.
 export default function LoansList() {
@@ -19,9 +16,11 @@ export default function LoansList() {
   useEffect(() => {
     const { rol } = decodeToken();
     setHeadCells(getHeadCells(rol));
-    
+
     dispatch(fetchLoans());
   }, []);
 
-  return <TableMui rows={rows} headCells={headCells} getCustomRow={getCustomRow} />
+  return (
+    <TableMui rows={rows} headCells={headCells} getCustomRow={getCustomRow} />
+  );
 }

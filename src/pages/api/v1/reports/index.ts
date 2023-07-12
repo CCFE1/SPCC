@@ -9,9 +9,9 @@ const reportsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { error, collections }: DBCollectionsResponse = await getDBCollections([
     "dispositivos",
     "prestamos",
-    "logs"
+    "logs",
   ]);
-  
+
   if (error || !collections) {
     return res.status(500).json({
       msg: "Error al conectar con la base de datos",
@@ -28,7 +28,7 @@ const reportsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method: string = req.method as string;
 
   const action: any = options[method] ?? options["default"];
-  
+
   return await action(req, res, devices, loans, logs);
 };
 

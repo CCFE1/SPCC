@@ -57,7 +57,7 @@ export const fetchDevices = createAsyncThunk(
     });
 
     return devices;
-  }
+  },
 );
 
 // Function to set a control
@@ -69,7 +69,7 @@ export const setControl = createAsyncThunk(
 
     const buscarDispositivo = (
       salon: string,
-      controlesSeleccionados: Item[]
+      controlesSeleccionados: Item[],
     ) => {
       // Buscar dispositivo por el nombre del salón
       const isDeviceSelected = controlesSeleccionados.filter((control: any) => {
@@ -100,14 +100,14 @@ export const setControl = createAsyncThunk(
       (device: Item) => {
         const deviceType = device.nombre.split(" ")[0];
         return deviceType.includes("control");
-      }
+      },
     );
 
     if (!!controlesSeleccionados.length) {
       // Interrumpir el seteo del control si es que ya existe en la lista de dispositivos
       const isDeviceSelected: boolean = buscarDispositivo(
         aula,
-        controlesSeleccionados
+        controlesSeleccionados,
       );
       if (isDeviceSelected) {
         return;
@@ -118,7 +118,7 @@ export const setControl = createAsyncThunk(
           const controlRemoved: Item[] = selectedDevices.filter(
             (selectDevice: Item) => {
               return selectDevice._id !== control._id;
-            }
+            },
           );
 
           dispatch(removeSelected(controlRemoved));
@@ -126,13 +126,13 @@ export const setControl = createAsyncThunk(
 
           return controlRemoved;
         },
-        [...state.selectedDevices]
+        [...state.selectedDevices],
       );
     }
 
     dispatch(updateDeviceAmount(isThereAControl[0]));
     dispatch(updateSelected(isThereAControl[0]));
-  }
+  },
 );
 
 ///////////////////////////
@@ -146,14 +146,14 @@ export const deviceSlice = createSlice({
     // O aumenta la cantidad del dispositivo seleccionado si es que se encuentra ahí
     updateSelected: (state, action: PayloadAction<Item>) => {
       const [lastItem] = state.devices.filter(
-        (device: Item) => device._id === action.payload._id
+        (device: Item) => device._id === action.payload._id,
       );
       const selectedDevices = state.selectedDevices.map((device: Item) => ({
         ...device,
       }));
       // Verificar si existe el ultimo item en el array value
       const [result] = selectedDevices.filter(
-        (device: Item) => device._id === lastItem._id
+        (device: Item) => device._id === lastItem._id,
       );
 
       // Si existe el tag, modifica la cantidad, si no, agrega el nuevo item
@@ -217,7 +217,7 @@ export const deviceSlice = createSlice({
       // Encontrar item eliminado
       const [itemDeleted]: Item[] = state.selectedDevices.filter(
         (value: Item) =>
-          !action.payload.some((item: Item) => value.value === item.value)
+          !action.payload.some((item: Item) => value.value === item.value),
       );
 
       console.log("item que se eliminó: ");
@@ -268,7 +268,7 @@ export const deviceSlice = createSlice({
                 labelPrestado: `${value} (${payload.localPrestado})`,
               };
             })(device)
-          : device
+          : device,
       );
 
       return {

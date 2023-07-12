@@ -21,7 +21,7 @@ export const addDays = (date: Date, days: number): Date => {
 export const subtractMonths = (date: Date, months: number) => {
   const newDate: Date = dayjs(date).subtract(months, "month").toDate();
   return newDate;
-}
+};
 
 // Agregar horas a una hora
 export const addHoursToHour = (hour: number, toAdd: number): Dayjs => {
@@ -44,7 +44,7 @@ export const setHourToDate = (date: Date, hour: number): Date => {
 export const setDayToDate = (date: Date, day: number): Date => {
   const dayAdded = dayjs(date).date(day).toDate();
   return dayAdded;
-}
+};
 
 // Obtener una fecha en formato iso 8601
 export const getDateISOFormat = (date?: Date): string =>
@@ -106,19 +106,16 @@ export const isDate1AfterDate2 = (date1: Date, date2: Date): boolean => {
 };
 
 export const isBetweenDates = (
-  dateToCompare: Date, 
-  initDate: Date, 
-  finalDate: Date
+  dateToCompare: Date,
+  initDate: Date,
+  finalDate: Date,
 ): boolean => {
   const init: Dayjs = dayjs(initDate);
   const final: Dayjs = dayjs(finalDate);
   return dayjs(dateToCompare).isBetween(init, final);
-}
+};
 
-export const getTimeBetweenTwoHours = (
-  initDate: Date, 
-  finalDate: Date
-) => {
+export const getTimeBetweenTwoHours = (initDate: Date, finalDate: Date) => {
   const diferencia: number = finalDate.getTime() - initDate.getTime(); // diferencia en milisegundos
 
   let segundos: number = Math.floor(diferencia / 1000);
@@ -132,8 +129,8 @@ export const getTimeBetweenTwoHours = (
     horas,
     minutos,
     segundos,
-  }
-}
+  };
+};
 
 //////////////////////////////
 // JWT Utils
@@ -170,7 +167,7 @@ export const openAcceptDialog = (
   title: string,
   text: string | JSX.Element,
   callback: (args?: any) => void,
-  args?: any
+  args?: any,
 ) => {
   const content: any = typeof text === "string" ? { text } : { html: text };
   AlertDialog.fire({
@@ -224,22 +221,22 @@ export function reemplazarAcentos(str: string) {
   };
 
   // Utilizamos una expresión regular para buscar y reemplazar los caracteres acentuados
-  return str.replace(/[áéíóúÁÉÍÓÚ]/g, function (match: any) {
-    return mapaAcentos[match];
-  }).replace("\n", " ");
+  return str
+    .replace(/[áéíóúÁÉÍÓÚ]/g, function (match: any) {
+      return mapaAcentos[match];
+    })
+    .replace("\n", " ");
 }
 
 export function removeDupString(arr: string[]) {
   return arr
     .reduce((acc: string[], char: string) => {
-      const isThere = acc.some(
-        (str: string) => {
-          const actualStr = reemplazarAcentos(str);
-          const oldChar = reemplazarAcentos(char);
+      const isThere = acc.some((str: string) => {
+        const actualStr = reemplazarAcentos(str);
+        const oldChar = reemplazarAcentos(char);
 
-          return actualStr === oldChar;
-        }
-      );
+        return actualStr === oldChar;
+      });
 
       if (!isThere) {
         return [...acc, char.replace("\n", " ")];

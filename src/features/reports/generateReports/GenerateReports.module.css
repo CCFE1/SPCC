@@ -1,16 +1,16 @@
-.topButtons { 
+.topButtons {
   display: flex;
   justify-content: space-between;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.bottomPane { 
-  padding: .5rem;
+.bottomPane {
+  padding: 0.5rem;
   border-radius: var(--radius-medium);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.center { 
-  display: flex; 
-  justify-content: center; 
+.center {
+  display: flex;
+  justify-content: center;
 }

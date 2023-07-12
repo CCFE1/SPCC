@@ -10,7 +10,7 @@ const returnLoanHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     "prestamos",
     "dispositivos",
   ]);
-  
+
   if (error || !collections) {
     return res.status(500).json({
       msg: "Error al conectar con la base de datos",

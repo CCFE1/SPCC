@@ -42,7 +42,11 @@ export const SuccessBlock = (props: SuccessBlockProps) => {
         variant="contained"
         size="small"
         onClick={propagationDisabled}
-        sx={{ backgroundColor: "#2196f3", marginTop: ".8rem", padding: "5px 1.5rem"}}
+        sx={{
+          backgroundColor: "#2196f3",
+          marginTop: ".8rem",
+          padding: "5px 1.5rem",
+        }}
         disableElevation
       >
         Subir

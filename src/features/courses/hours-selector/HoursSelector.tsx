@@ -15,7 +15,7 @@ import {
 
 export default function HoursSelector(props: SelectorProps) {
   const [inputSelected, setInputSelected] = useState<"horaInicio" | "horaFin">(
-    "horaInicio"
+    "horaInicio",
   );
   const [actualHour] = useState<number>(getDecimalHour());
   const [isOtherSelected, setIsOtherSelected] = useState<boolean>(false);

@@ -40,7 +40,7 @@ export const reloadAll = (dispatch: any, dayname: Semana): void => {
 export const returnLoanAction = (
   dispatch: any,
   dayname: Semana,
-  returnData: ReturnLoanData
+  returnData: ReturnLoanData,
 ): void => {
   // Eliminar el dispositivo seleccionado en caso de que sea devuelto
   dispatch(setSelectedLoanIndex(-1));
@@ -62,7 +62,7 @@ export const returnLoanAction = (
       dispatch(setStatus("idle"));
       openDialog(
         "Error",
-        "Error en el servidor al intentar devolver el prestamo"
+        "Error en el servidor al intentar devolver el prestamo",
       );
     });
 };

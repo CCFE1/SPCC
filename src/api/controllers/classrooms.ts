@@ -5,7 +5,7 @@ import { getAll, DbServiceResponse } from "../services/dbServices";
 export const getClassrooms = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  classroomCollection: Collection
+  classroomCollection: Collection,
 ) => {
   // Obtener todas las aulas.
   const allClassrooms: DbServiceResponse = await getAll(classroomCollection);
@@ -18,7 +18,7 @@ export const getClassrooms = async (
 
   // Obtener aulas con préstamos activos.
   const actives: DbServiceResponse = await getActiveClassrooms(
-    classroomCollection
+    classroomCollection,
   );
   if (actives.err) {
     return res.status(500).json({
@@ -50,7 +50,7 @@ export const getClassrooms = async (
 /////////////////////////////
 // Obtener las aulas que tienen préstamos actvos
 async function getActiveClassrooms(
-  classroomCollection: Collection
+  classroomCollection: Collection,
 ): Promise<DbServiceResponse> {
   try {
     const data = (await classroomCollection

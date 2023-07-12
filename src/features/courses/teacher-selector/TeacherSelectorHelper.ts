@@ -13,25 +13,25 @@ export const clearAction = (setValue: any) => {
 // Obtener las materias de lo maestros.
 export const getTeacherNrcs = (
   nrcs: NrcTag[],
-  maestro: TeacherTag
+  maestro: TeacherTag,
 ): NrcTag[] => {
   return nrcs.filter(
-    (nrc: NrcTag) => !!nrc.maestro && nrc.maestro._id === maestro._id
+    (nrc: NrcTag) => !!nrc.maestro && nrc.maestro._id === maestro._id,
   );
 };
 
 // Ordenar horarios
 export const getOrderedSchedules = (
-  horariosDesordenados: NrcTag[]
+  horariosDesordenados: NrcTag[],
 ): NrcTag[] => {
   return horariosDesordenados.sort(
-    (a: any, b: any) => a.horarios[0].horaInicio - b.horarios[0].horaInicio
+    (a: any, b: any) => a.horarios[0].horaInicio - b.horarios[0].horaInicio,
   );
 };
 
 export const getTeachersWithTodayCourses = (
   teacherCourses: NrcTag[],
-  dayname: Semana
+  dayname: Semana,
 ): NrcTag[] => {
   const coursesWithTodaySchedule = teacherCourses
     .map((course: NrcTag) => {
@@ -59,7 +59,7 @@ export const getTeachersWithTodayCourses = (
 export const setLoanData = (
   setValue: any,
   nearest: NrcTag,
-  dispatch: any
+  dispatch: any,
 ): void => {
   // Setteando nrc
   setValue("nrcs", nearest);

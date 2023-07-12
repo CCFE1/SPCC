@@ -32,7 +32,7 @@ function ActiveLoansList() {
 
   const activeLoans = useAppSelector(selectActiveLoans);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | undefined>(
-    undefined
+    undefined,
   );
   useEffect(() => {
     // Si existe un intervalo anterior, limpiarlo
@@ -110,4 +110,4 @@ function ActiveLoansList() {
   );
 }
 
-export default dynamic (() => Promise.resolve(ActiveLoansList), {ssr: false})
+export default dynamic(() => Promise.resolve(ActiveLoansList), { ssr: false });

@@ -31,7 +31,7 @@ export default function Login() {
               color: "var(--white)",
             }}
           >
-            Sistema de Prestamos del <br /> Centro de Cómputo
+            Sistema de Préstamos del <br /> Centro de Cómputo
           </span>
         </div>
         <LoginFeature />

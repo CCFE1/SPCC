@@ -14,7 +14,7 @@ export const uploadSchedules = async (
   res: NextApiResponse,
   coursesCollection: Collection,
   teachersCollection: Collection,
-  classroomsCollection: Collection
+  classroomsCollection: Collection,
 ) => {
   const { borrar, schedules } = req.body;
 
@@ -22,7 +22,7 @@ export const uploadSchedules = async (
   const newTeachers: string[] = removeDupString(
     schedules
       .map((schedule: any) => schedule.CATEDRATICO)
-      .filter((t: any) => !!t)
+      .filter((t: any) => !!t),
   );
 
   // Normalizando los nombres de los maestros en los datos enviados
@@ -30,7 +30,7 @@ export const uploadSchedules = async (
     const normalizedTeacher = newTeachers.find(
       (newT: any) =>
         !!schedule.CATEDRATICO &&
-        reemplazarAcentos(newT) === reemplazarAcentos(schedule.CATEDRATICO)
+        reemplazarAcentos(newT) === reemplazarAcentos(schedule.CATEDRATICO),
     );
 
     if (!!normalizedTeacher) {
@@ -61,7 +61,7 @@ export const uploadSchedules = async (
       teachersCollection,
       missingTeachers.map((teacher: string) => ({
         nombre: teacher,
-      }))
+      })),
     );
     if (err) {
       res.status(501).json({
@@ -74,24 +74,28 @@ export const uploadSchedules = async (
   const classrooms: DbServiceResponse = await getAll(classroomsCollection);
 
   // Obtener las aulas de los nuevos horarios
-  const newClassrooms = normalizedSchedules.map((schedule: any) => {
-    const aulas = Object.entries(schedule).map(([key, value]: any[]) => {
-      const isAula = key.split("-")[1];
-      if (isAula === "AULA") {
-        return value.toString();
-      }
+  const newClassrooms = normalizedSchedules
+    .map((schedule: any) => {
+      const aulas = Object.entries(schedule)
+        .map(([key, value]: any[]) => {
+          const isAula = key.split("-")[1];
+          if (isAula === "AULA") {
+            return value.toString();
+          }
 
-      return;
-    }).filter(x => !!x);
+          return;
+        })
+        .filter((x) => !!x);
 
-    return aulas.flat();
-  }).flat();
+      return aulas.flat();
+    })
+    .flat();
 
   // Buscar aulas que no se encuentren en la bd
   const missingClassrooms: string[] = removeDup(newClassrooms).reduce(
     (acc: string[], schedule: any) => {
       const existClassroom: string = classrooms.data.some(
-        (oldC: any) => oldC.nombre === schedule
+        (oldC: any) => oldC.nombre === schedule,
       );
 
       if (!existClassroom) {
@@ -100,7 +104,7 @@ export const uploadSchedules = async (
 
       return acc;
     },
-    []
+    [],
   );
 
   // Añadir las aulas faltantes a la base de datos
@@ -109,7 +113,7 @@ export const uploadSchedules = async (
       classroomsCollection,
       missingClassrooms.map((classroom: string) => ({
         nombre: classroom,
-      }))
+      })),
     );
     if (err) {
       res.status(501).json({
@@ -122,7 +126,7 @@ export const uploadSchedules = async (
   const courseNames: any = removeDup(
     normalizedSchedules.map((course: any) => {
       return course.EE;
-    })
+    }),
   );
 
   const teachers: DbServiceResponse = await getAll(teachersCollection);
@@ -135,7 +139,7 @@ export const uploadSchedules = async (
   const coursesFormated = removeDup(courseNames).map((courseName) => {
     // Obtener todas las asignaciones del curso
     const allOfActualCourse = normalizedSchedules.filter(
-      (course: any) => course.EE === courseName
+      (course: any) => course.EE === courseName,
     );
     const asignaciones = allOfActualCourse.map((course: any) => {
       // Obtener los nombres de los dias que tiene esa asignacion
@@ -144,7 +148,7 @@ export const uploadSchedules = async (
           attName !== "EE" &&
           attName !== "NRC" &&
           attName !== "CATEDRATICO" &&
-          !attName.includes("AULA")
+          !attName.includes("AULA"),
       );
       // Obtener los horarios de cada dia
       const horarios = dayNames.map((dayName) => {
@@ -158,7 +162,7 @@ export const uploadSchedules = async (
       });
 
       const selectedTeacher = teachers.data.filter(
-        (teacher: any) => teacher.nombre === course["CATEDRATICO"]
+        (teacher: any) => teacher.nombre === course["CATEDRATICO"],
       );
       return {
         nrc: course["NRC"],

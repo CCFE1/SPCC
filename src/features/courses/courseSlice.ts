@@ -38,15 +38,12 @@ export const fetchClassrooms = createAsyncThunk(
   "courses/fetchClassrooms",
   async () => {
     const config = getFetchConfig();
-    const response: any = await axios.get<any>(
-      `/api/v1/classrooms`,
-      config
-    );
+    const response: any = await axios.get<any>(`/api/v1/classrooms`, config);
     return response.data.data.map((aula: any) => ({
       label: aula.nombre,
       value: aula.nombre,
     }));
-  }
+  },
 );
 
 // Function to get all courses
@@ -58,7 +55,7 @@ export const fetchCourses = createAsyncThunk(
 
     const response: any = await axios.get<any>(
       `/api/v1/courses/${dayname}`,
-      config
+      config,
     );
     // Settear label y value a las materias que tienen clases hoy
     const courses: CourseTag[] = response.data.data
@@ -76,7 +73,7 @@ export const fetchCourses = createAsyncThunk(
       .filter((item: any) => item !== undefined);
 
     return courses;
-  }
+  },
 );
 
 // Function to get all nrc
@@ -86,7 +83,7 @@ export const fetchNrcs = createAsyncThunk(
     const config = getFetchConfig();
     const response: any = await axios.get<any>(
       `/api/v1/courses/${dayname}`,
-      config
+      config,
     );
     const materias: Materia[] = response.data.data;
 
@@ -106,7 +103,7 @@ export const fetchNrcs = createAsyncThunk(
 
     const data: NrcTag[] = [].concat(...nrcs);
     return data;
-  }
+  },
 );
 
 // Function to get all teachers
@@ -114,10 +111,7 @@ export const fetchTeachers = createAsyncThunk(
   "courses/fetchTeachers",
   async (arg, { getState }) => {
     const config = getFetchConfig();
-    const response: any = await axios.get<any>(
-      `/api/v1/teachers`,
-      config
-    );
+    const response: any = await axios.get<any>(`/api/v1/teachers`, config);
 
     const state: any = getState();
     const nrcs: NrcTag[] = state.courses.nrcs;
@@ -130,14 +124,15 @@ export const fetchTeachers = createAsyncThunk(
           label: maestro.nombre,
           value: maestro._id,
         };
-      }
+      },
     );
 
     // Obtener maestros que coinciden con los nrcs de las materias que tienen clase hoy pero con duplicados
     const teachersWithCoursesDup: TeacherTag[] = nrcs
       .map((nrc: NrcTag) => {
         const data = teachers.filter(
-          (teacher: Maestro) => !!nrc.maestro && teacher._id === nrc.maestro._id
+          (teacher: Maestro) =>
+            !!nrc.maestro && teacher._id === nrc.maestro._id,
         );
         return data;
       })
@@ -148,8 +143,8 @@ export const fetchTeachers = createAsyncThunk(
       (value: any, index: any, self: any) =>
         index ===
         self.findIndex(
-          (t: TeacherTag) => t._id === value._id && t.nombre === value.nombre
-        )
+          (t: TeacherTag) => t._id === value._id && t.nombre === value.nombre,
+        ),
     );
 
     // Eliminar a los maestros que tienen clase hoy
@@ -163,7 +158,7 @@ export const fetchTeachers = createAsyncThunk(
         }
 
         return !isTeacherWithCourses;
-      }
+      },
     );
 
     // Poner los profesores con cursos hasta el principio de la lista
@@ -172,7 +167,7 @@ export const fetchTeachers = createAsyncThunk(
       ...teachersWithOutCourses,
     ];
     return orderedTeachers;
-  }
+  },
 );
 
 ///////////////////////////

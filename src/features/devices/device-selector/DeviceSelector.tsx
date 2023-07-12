@@ -41,7 +41,7 @@ export default function DeviceSelector({ isLoading }: { isLoading?: any }) {
 
   const onChange = (
     itemsSelected: MultiValue<Item>,
-    { action }: ActionMeta<any>
+    { action }: ActionMeta<any>,
   ) => {
     const actions: any = {
       "select-option": () =>
@@ -55,7 +55,7 @@ export default function DeviceSelector({ isLoading }: { isLoading?: any }) {
     } catch (e: any) {
       openDialog(
         "Lo sentimos",
-        "Esta acción no está permitida por el momento."
+        "Esta acción no está permitida por el momento.",
       );
     }
   };

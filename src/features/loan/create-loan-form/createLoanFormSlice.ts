@@ -24,16 +24,12 @@ export const uploadLoan = createAsyncThunk(
       headers: { Authorization: `Bearer ${token}` },
     };
 
-    const { data, status } = await axios.post(
-      `/api/v1/loan`,
-      prestamo,
-      config
-    );
+    const { data, status } = await axios.post(`/api/v1/loan`, prestamo, config);
     return {
       data,
       status,
     };
-  }
+  },
 );
 
 ///////////////////////////

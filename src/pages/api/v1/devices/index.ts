@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { error, collections }: DBCollectionsResponse = await getDBCollections([
     "dispositivos",
   ]);
-  
+
   if (error || !collections) {
     return res.status(500).json({
       msg: "Error al conectar con la base de datos",
@@ -18,8 +18,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // Métodos de solicitud aceptados por esta ruta.
   const options: any = {
-    "GET": getAllDevices,
-    "default": defaultResponse,
+    GET: getAllDevices,
+    default: defaultResponse,
   };
 
   const [devices]: Collection[] = collections;

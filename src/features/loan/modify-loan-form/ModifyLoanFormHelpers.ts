@@ -8,7 +8,7 @@ import type {
 // Función utilizada en el hook para agregar los datos a los inputs
 export const getDevicesToSelect = (
   devices: Item[],
-  selectedLoan: Prestamo | undefined
+  selectedLoan: Prestamo | undefined,
 ): (Item | undefined)[] => {
   // Obtiene los dispositivos a seleccionar de la lista de dispositivos
   const devicesToSelect: (Item | undefined)[] = devices
@@ -21,7 +21,7 @@ export const getDevicesToSelect = (
             }
             return acc;
           },
-          undefined
+          undefined,
         );
 
       return match
@@ -39,7 +39,7 @@ export const getDevicesToSelect = (
 // Obtener data para enviar
 export const getDataToSend = (
   selectedDevices: Item[],
-  selectedLoan: Prestamo | undefined
+  selectedLoan: Prestamo | undefined,
 ): ModifyData[] => {
   const dataToSend: ModifyData[] = selectedDevices.map((newDevice: Item) => {
     // La información por defecto es la de un dispositivo nuevo agregado
@@ -74,13 +74,13 @@ export const getDataToSend = (
 
 export const getDeletedDevices = (
   selectedDevices: Item[],
-  selectedLoan: Prestamo | undefined
+  selectedLoan: Prestamo | undefined,
 ): (ModifyData | undefined)[] | undefined => {
   const deletedDevices: (ModifyData | undefined)[] | undefined =
     selectedLoan?.dispositivos
       .map((loanDevice: MetaDispositivo) => {
         const isThere: boolean = !!selectedDevices.filter(
-          (newDevice: Item) => newDevice._id === loanDevice._id
+          (newDevice: Item) => newDevice._id === loanDevice._id,
         )[0];
         return isThere
           ? undefined

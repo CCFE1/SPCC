@@ -5,9 +5,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <HamburgerMenu />
-      <span className={styles.logo}>
-        UV
-      </span>
+      <span className={styles.logo}>UV</span>
     </header>
   );
 }

@@ -60,12 +60,12 @@ export default function GenerateReports() {
       // Si la fecha de inicio es mayor a la final, soltar alerta
       const isInitAfterFinal = isDate1AfterDate2(
         initDate.toDate(),
-        finalDate.toDate()
+        finalDate.toDate(),
       );
       if (isInitAfterFinal) {
         return openDialog(
           "Alerta",
-          "La fecha de inicio no puede ser mayor a la fecha de fin"
+          "La fecha de inicio no puede ser mayor a la fecha de fin",
         );
       }
 
@@ -73,7 +73,7 @@ export default function GenerateReports() {
       if (areSame) {
         return openDialog(
           "Alerta",
-          "La fecha de inicio no puede ser igual a la fecha de fin"
+          "La fecha de inicio no puede ser igual a la fecha de fin",
         );
       }
     }
@@ -110,7 +110,10 @@ export default function GenerateReports() {
             fileName: `reportes-${fileNameComplement[buttonType]}`,
           });
 
-          openDialog("Aviso", "Si no hay tiempos de algún item, no aparecerá en la tabla. lo que genera reportes vacios en caso de no haber ningun tiempo de ningun item (En proceso de arreglar)");
+          openDialog(
+            "Aviso",
+            "Si no hay tiempos de algún item, no aparecerá en la tabla. lo que genera reportes vacios en caso de no haber ningun tiempo de ningun item (En proceso de arreglar)",
+          );
         } catch (e: any) {
           console.log(e);
           openDialog("Error", "Algo salió mal al generar los reportes");

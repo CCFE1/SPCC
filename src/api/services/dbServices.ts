@@ -2,7 +2,7 @@ import { ObjectId, Collection } from "mongodb";
 
 const saveOne = async (
   collection: Collection,
-  data: any
+  data: any,
 ): Promise<DbServiceResponse> => {
   try {
     await collection.insertOne({ ...data });
@@ -19,7 +19,7 @@ const saveOne = async (
 
 const saveMany = async (
   collection: Collection,
-  data: any
+  data: any,
 ): Promise<DbServiceResponse> => {
   try {
     await collection.insertMany(data);
@@ -37,7 +37,7 @@ const saveMany = async (
 const getOne = async (
   collection: Collection,
   option: any,
-  projection: any = {}
+  projection: any = {},
 ): Promise<DbServiceResponse> => {
   try {
     const query =
@@ -62,7 +62,7 @@ const getOne = async (
 
 const getAll = async (
   collection: Collection,
-  query?: any
+  query?: any,
 ): Promise<DbServiceResponse> => {
   try {
     const condition = !!query ? query : {};
@@ -82,7 +82,7 @@ const getAll = async (
 const updateOne = async (
   collection: Collection,
   query: any,
-  modifier: any
+  modifier: any,
 ): Promise<DbServiceResponse> => {
   try {
     const filter =
@@ -105,7 +105,7 @@ const updateOne = async (
 };
 
 const deleteAll = async (
-  collection: Collection
+  collection: Collection,
 ): Promise<DbServiceResponse> => {
   try {
     await collection.deleteMany({});

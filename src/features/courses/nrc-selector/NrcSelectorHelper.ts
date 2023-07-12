@@ -22,7 +22,7 @@ export const setFirstLoanData = (setValue: any, selectedItem: NrcTag) => {
           label: selectedItem.maestro.nombre,
           value: selectedItem.maestro._id,
         }
-      : ""
+      : "",
   );
 
   // Setteando materia
@@ -38,11 +38,11 @@ export const setSecondLoanData = (
   setValue: any,
   selectedItem: NrcTag,
   dispatch: any,
-  date: Date
+  date: Date,
 ) => {
   const dayName = getDayName(date);
   const horario = selectedItem.horarios.filter(
-    (horario: any) => horario.dia === dayName
+    (horario: any) => horario.dia === dayName,
   );
   if (!horario.length) {
     setValue("aulas", "");

@@ -72,7 +72,7 @@ export default function TeacherSelector(props: SelectorProps) {
     // Obtener los maestros y sus horarios de hoy si es que tienen
     const horariosDesordenados: NrcTag[] = getTeachersWithTodayCourses(
       teacherCourses,
-      dayname
+      dayname,
     );
     if (!horariosDesordenados || !horariosDesordenados.length) return;
 
@@ -86,7 +86,7 @@ export default function TeacherSelector(props: SelectorProps) {
     // Conseguir el horario mas cercano a la hora mas cercana
     const nearest: NrcTag | undefined = getNearestCourse(
       horariosActuales,
-      areConsecutive
+      areConsecutive,
     );
     if (!nearest) return;
 
@@ -96,7 +96,7 @@ export default function TeacherSelector(props: SelectorProps) {
   const onChange = (selectedItem: TeacherTag, { action }: ActionMeta<any>) => {
     const { setValue } = props;
     const options: any = {
-      "clear": () => clearAction(setValue),
+      clear: () => clearAction(setValue),
       "create-option": () => setValue("maestros", selectedItem),
       "select-option": () => {
         loadLoanData(setValue, selectedItem);
@@ -108,7 +108,7 @@ export default function TeacherSelector(props: SelectorProps) {
     } catch (e: any) {
       openDialog(
         "Lo sentimos",
-        "Esta acción no está permitida por el momento."
+        "Esta acción no está permitida por el momento.",
       );
     }
   };

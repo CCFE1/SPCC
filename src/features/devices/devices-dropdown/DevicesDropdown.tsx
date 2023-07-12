@@ -6,12 +6,15 @@ import { MetaDispositivo, DevicesDropdownProps } from "@models/interfaces";
 export default function DevicesDropdown(props: DevicesDropdownProps) {
   const listItems: string[] = props.devicesList.map(
     (dispositivo: MetaDispositivo) =>
-      `${dispositivo.nombre} (${dispositivo.localPrestado})`
+      `${dispositivo.nombre} (${dispositivo.localPrestado})`,
   );
 
-  const downlistItems: string[] | undefined = !props.returnedDevices ? undefined: props.returnedDevices.map(
-    (device: MetaDispositivo) => `${device.nombre} (${device.localPrestado})`
-  );
+  const downlistItems: string[] | undefined = !props.returnedDevices
+    ? undefined
+    : props.returnedDevices.map(
+        (device: MetaDispositivo) =>
+          `${device.nombre} (${device.localPrestado})`,
+      );
 
   return (
     <DropdownButton

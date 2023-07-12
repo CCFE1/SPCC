@@ -11,19 +11,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 
-import type {
-  EnhancedTableProps,
-  HeadCell,
-} from "@models/interfaces";
+import type { EnhancedTableProps, HeadCell } from "@models/interfaces";
 
 // Aqui van los nombres de las columnas en la tabla mui
 export function EnhancedTableHead(props: EnhancedTableProps) {
-  const {
-    order,
-    orderBy,
-    rowCount,
-    onRequestSort,
-  } = props;
+  const { order, orderBy, rowCount, onRequestSort } = props;
   const createSortHandler =
     (newOrderBy: any) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, newOrderBy);
@@ -44,7 +36,11 @@ export function EnhancedTableHead(props: EnhancedTableProps) {
               active={orderBy === headCell.id}
               hideSortIcon={headCell.disableSort}
               direction={orderBy === headCell.id ? order : "asc"}
-              onClick={!headCell.disableSort ? createSortHandler(headCell.id): undefined}
+              onClick={
+                !headCell.disableSort
+                  ? createSortHandler(headCell.id)
+                  : undefined
+              }
             >
               {headCell.label}
               {orderBy === headCell.id ? (

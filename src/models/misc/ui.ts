@@ -2,12 +2,12 @@ import { Dayjs } from "dayjs";
 import type { CSSProperties } from "react";
 import type { Tag } from "@models/interfaces";
 import type { ActionMeta } from "react-select";
-import type { 
+import type {
   MouseElementFunction,
-  onChangeFunction, 
+  onChangeFunction,
   StatusType,
-  Anchor, 
-  Order 
+  Anchor,
+  Order,
 } from "../types";
 
 /**
@@ -178,10 +178,7 @@ export interface HeadCell {
 }
 
 export interface EnhancedTableProps {
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    newOrderBy: any
-  ) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, newOrderBy: any) => void;
   styles?: any;
   order: Order;
   orderBy: string;

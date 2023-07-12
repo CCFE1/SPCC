@@ -8,7 +8,7 @@ export const createToken = (payload: JwtPayload): string => {
   const token: string = jwt.sign(
     payload,
     process.env.TOKEN as string,
-    jwtOptions
+    jwtOptions,
   );
   return token;
 };

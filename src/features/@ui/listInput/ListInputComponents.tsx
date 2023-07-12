@@ -1,9 +1,9 @@
-import NoSsr from '@mui/base/NoSsr';
+import NoSsr from "@mui/base/NoSsr";
 import CreatableSelect from "react-select/creatable";
 
 export const CreatableAdapter = ({ input, innerRef, ...rest }: any) => {
   return (
-     <NoSsr>
+    <NoSsr>
       <CreatableSelect
         {...input}
         {...rest}
@@ -14,6 +14,6 @@ export const CreatableAdapter = ({ input, innerRef, ...rest }: any) => {
         }
         searchable
       />
-     </NoSsr>
+    </NoSsr>
   );
 };

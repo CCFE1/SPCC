@@ -9,7 +9,7 @@ export default function LabelTooltip(props: LabelTooltipProps) {
   const CustomComponent = forwardRef<HTMLSpanElement, LabelProps>(
     function MyComponent(props, ref) {
       return <Label ref={ref} {...props} />;
-    }
+    },
   );
 
   return (

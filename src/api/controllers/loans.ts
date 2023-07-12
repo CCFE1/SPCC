@@ -21,7 +21,7 @@ export const uploadLoan = async (
   req: NextApiRequest,
   res: NextApiResponse,
   loanCollection: Collection,
-  deviceCollection: Collection
+  deviceCollection: Collection,
 ) => {
   const data: Prestamo = req.body;
   const dispositivos: MetaDispositivo[] = data.dispositivos.map(
@@ -30,7 +30,7 @@ export const uploadLoan = async (
         ...device,
         actives: device.localPrestado,
       };
-    }
+    },
   );
 
   console.log(dispositivos);
@@ -48,7 +48,7 @@ export const uploadLoan = async (
       dispositivo._id,
       {
         $inc: { prestado: dispositivo.localPrestado },
-      }
+      },
     );
 
     console.log(result);
@@ -80,7 +80,7 @@ export const uploadLoan = async (
 export const getAllLoans = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  loanCollection: Collection
+  loanCollection: Collection,
 ) => {
   const response: DbServiceResponse = await getAll(loanCollection);
   if (response.err) {
@@ -99,7 +99,7 @@ export const getAllLoans = async (
 export const getActiveLoans = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  loanCollection: Collection
+  loanCollection: Collection,
 ) => {
   const response: DbServiceResponse = await getAll(loanCollection, {
     status: "activo",
@@ -121,7 +121,7 @@ export const returnLoan = async (
   req: NextApiRequest,
   res: NextApiResponse,
   loanCollection: Collection,
-  deviceCollection: Collection
+  deviceCollection: Collection,
 ) => {
   const { loanID, returnedDevices }: ReturnLoanData = req.body;
 
@@ -151,7 +151,7 @@ export const returnLoan = async (
       dispositivo.id,
       {
         $inc: { prestado: -dispositivo.value },
-      }
+      },
     );
 
     // Si falla la actualización
@@ -167,7 +167,7 @@ export const returnLoan = async (
   const allDevices: MetaDispositivo[] = loan.dispositivos.map(
     (device: MetaDispositivo) => {
       const returnedDevice: Tag | undefined = returnedDevices.find(
-        (item: Tag) => item.id === device._id
+        (item: Tag) => item.id === device._id,
       );
 
       const actives: number =
@@ -179,23 +179,23 @@ export const returnLoan = async (
         ...device,
         actives,
       };
-    }
+    },
   );
 
   const dispositivos: MetaDispositivo[] = allDevices.filter(
-    (device: MetaDispositivo) => device.actives > 0
+    (device: MetaDispositivo) => device.actives > 0,
   );
 
   const dispositivosDevueltos: MetaDispositivo[] = allDevices.filter(
-    (device: MetaDispositivo) => device.actives <= 0
+    (device: MetaDispositivo) => device.actives <= 0,
   );
 
   result = await updateOne(loanCollection, loanID, {
-    $set: { 
-      dispositivos, 
+    $set: {
+      dispositivos,
       dispositivosDevueltos: [
         ...loan.dispositivosDevueltos,
-        ...dispositivosDevueltos
+        ...dispositivosDevueltos,
       ],
     },
   });
@@ -208,7 +208,7 @@ export const returnLoan = async (
   }
 
   const areAllInactive: boolean = !dispositivos.some(
-    (device: MetaDispositivo) => !!device.actives && device.actives > 0
+    (device: MetaDispositivo) => !!device.actives && device.actives > 0,
   );
 
   // Quitando el estado activo al préstamo
@@ -238,7 +238,7 @@ export const updateLoan = async (
   req: NextApiRequest,
   res: NextApiResponse,
   loanCollection: Collection,
-  deviceCollection: Collection
+  deviceCollection: Collection,
 ) => {
   const { loanID, changedDevices, deletedDevices, aula }: DataToSend = req.body;
 
@@ -267,7 +267,7 @@ export const updateLoan = async (
   const { err, data }: DbServiceResponse = await getOne(
     loanCollection,
     loanID,
-    { projection: { dispositivos: 1 } }
+    { projection: { dispositivos: 1 } },
   );
   if (err || !data) {
     return res.status(500).json({
@@ -284,7 +284,7 @@ export const updateLoan = async (
         deletedDevice.deviceID,
         {
           $inc: { prestado: -deletedDevice.difference },
-        }
+        },
       );
     });
   }
@@ -294,7 +294,7 @@ export const updateLoan = async (
     ? [...data.dispositivos]
     : data.dispositivos.filter((originalDevice: any) => {
         const wasDeleted: boolean = deletedDevices.some(
-          (deletedDevice: any) => deletedDevice.deviceID === originalDevice._id
+          (deletedDevice: any) => deletedDevice.deviceID === originalDevice._id,
         );
         return !wasDeleted;
       });
@@ -308,7 +308,7 @@ export const updateLoan = async (
         changedDevice.deviceID,
         {
           $inc: { prestado: changedDevice.difference },
-        }
+        },
       );
     });
   }
@@ -318,7 +318,7 @@ export const updateLoan = async (
   const devicesWithChanges: MetaDispositivo[] = withoutDeletedDevices.map(
     (originalDevice: MetaDispositivo) => {
       const deviceWithChange: ModifyData[] = changedDevices.filter(
-        (changedDevice: any) => changedDevice.deviceID === originalDevice._id
+        (changedDevice: any) => changedDevice.deviceID === originalDevice._id,
       );
       // Si no se encuentran cambios
       if (!deviceWithChange.length) {
@@ -336,7 +336,7 @@ export const updateLoan = async (
         localPrestado: originalDevice.localPrestado + changedDevice.difference,
         actives: originalDevice.actives + changedDevice.difference,
       };
-    }
+    },
   );
 
   // Obteniendo dispositivos nuevos
@@ -391,7 +391,7 @@ export const updateLoan = async (
 
 export const generateLoanReports = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {};
 
 export default {

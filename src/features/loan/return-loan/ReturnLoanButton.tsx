@@ -48,7 +48,7 @@ export default function ReturnLoanButton(props: ReturnLoanButtonProps) {
       setTimeout(() => {
         openDialog(
           "Mensaje",
-          "Selecciona al menos un dispositivo para devolver"
+          "Selecciona al menos un dispositivo para devolver",
         );
       }, 20);
       setReturnLoan(false);
@@ -86,7 +86,7 @@ export default function ReturnLoanButton(props: ReturnLoanButtonProps) {
     openAcceptDialog(
       "Lista de dispositivos a devolver:",
       <CheckboxList itemList={itemList} callback={toggleListMiddler} />,
-      returnLoanHandler
+      returnLoanHandler,
     );
   };
 

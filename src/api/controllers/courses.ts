@@ -8,10 +8,9 @@ import type { Semana } from "@models/types";
 export const getCourses = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  coursesCollection: Collection
+  coursesCollection: Collection,
 ) => {
-  const { dayname }: Partial<{ [key: string]: string | string[] }> =
-    req.query;
+  const { dayname }: Partial<{ [key: string]: string | string[] }> = req.query;
   if (!dayname) {
     return res.status(500).json({
       err: true,
@@ -19,7 +18,9 @@ export const getCourses = async (
     });
   }
 
-  const decodedDayname: Semana = decodeURIComponent(dayname?.toString()) as Semana;
+  const decodedDayname: Semana = decodeURIComponent(
+    dayname?.toString(),
+  ) as Semana;
   // Obtener todas las materias.
   const allCourses: DbServiceResponse = await getAll(coursesCollection);
   if (allCourses.err) {
@@ -50,7 +51,7 @@ export const getCourses = async (
         }
 
         return true;
-      }
+      },
     );
 
     return {
@@ -73,7 +74,7 @@ export const getCourses = async (
               }
 
               return false;
-            }
+            },
           );
 
           return !horarios.length
@@ -122,7 +123,7 @@ function isCourseIn(activeCourse: any, asignacion: Asignacion) {
 
 // Obtener las materias que tienen préstamos actvos
 async function getActiveCourses(
-  coursesCollection: Collection
+  coursesCollection: Collection,
 ): Promise<DbServiceResponse> {
   try {
     const data = (await coursesCollection

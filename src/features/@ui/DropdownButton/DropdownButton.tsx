@@ -22,7 +22,7 @@ export default function DropdownButton(props: DropdownButtonProps) {
       <MenuItem key={index} onClick={handleClose}>
         {itemText}
       </MenuItem>
-    )
+    ),
   );
 
   const downlistItems: JSX.Element[] | undefined =
@@ -43,11 +43,9 @@ export default function DropdownButton(props: DropdownButtonProps) {
         onClick={(e: any) => e.stopPropagation()}
       >
         {[
-          listItems, 
-          (
-            <Divider key="divider_" sx={{ my: 0.5 }} />
-          ), 
-          downlistItems
+          listItems,
+          <Divider key="divider_" sx={{ my: 0.5 }} />,
+          downlistItems,
         ]}
       </Menu>
     </>

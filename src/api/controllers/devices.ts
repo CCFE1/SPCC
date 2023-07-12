@@ -5,7 +5,7 @@ import { getAll, DbServiceResponse } from "../services/dbServices";
 export const getAllDevices = async (
   req: NextApiRequest,
   res: NextApiResponse,
-  deviceCollection: Collection
+  deviceCollection: Collection,
 ) => {
   const devices: DbServiceResponse = await getAll(deviceCollection);
 

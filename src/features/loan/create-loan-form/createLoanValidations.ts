@@ -93,7 +93,7 @@ export const firstValidations = (formData: any, selectedDevices: any) => {
 export const secondValidations = (
   formData: any,
   selectedDevices: any,
-  devices: any
+  devices: any,
 ) => {
   // saber si el salón seleccionado tiene un control
   const isThereAControl = devices.filter((device: any) => {

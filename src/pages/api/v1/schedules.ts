@@ -11,7 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "maestros",
     "aulas",
   ]);
-  
+
   if (error || !collections) {
     return res.status(500).json({
       msg: "Error al conectar con la base de datos",

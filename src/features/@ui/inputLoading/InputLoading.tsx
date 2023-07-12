@@ -7,7 +7,10 @@ export default function InputLoading(props: InputLoadingProps) {
       className={styles.mainItem}
       style={props.width ? { width: props.width } : undefined}
     >
-      <div className={styles.staticBackground} style={{ height: props.height }}></div>
+      <div
+        className={styles.staticBackground}
+        style={{ height: props.height }}
+      ></div>
     </div>
   );
 }

@@ -7,19 +7,20 @@
 }
 
 .swal2-html-container {
-  margin: .7em 1em .3em !important;
+  margin: 0.7em 1em 0.3em !important;
 }
 
 .swal2-actions {
-  margin: 0.45em auto .7rem !important;
+  margin: 0.45em auto 0.7rem !important;
 }
 
-.swal2-confirm, .swal2-cancel {
+.swal2-confirm,
+.swal2-cancel {
   color: var(--base-font-color) !important;
   background-color: var(--material-white) !important;
   border: 2px solid var(--border-light-gray) !important;
   border-radius: 4px !important;
-  padding: .35rem 2rem !important;
+  padding: 0.35rem 2rem !important;
   font-size: 15px !important;
 
   transition: all 0.3s ease 0s !important;

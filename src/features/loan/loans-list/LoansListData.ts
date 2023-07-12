@@ -85,7 +85,7 @@ const data: HeadCell[] = [
     label: "Observaciones ",
     disableSort: false,
   },
-]
+];
 
 // Aqui se filtran las opciones de las columnas.
 export const getHeadCells = (rol: any) => {

@@ -16,10 +16,8 @@ export default function LoadingTableBody(props: LoadingTableBodyProps) {
     return columnsNumber.map((x, i) => {
       // Saber si se va o no incluir el loading
       const isInclude = include();
-      const tdContent = !!isInclude ? <InputLoading height="4vh" />: <></>;
-      return (
-        <td key={i}>{tdContent}</td>
-      );
+      const tdContent = !!isInclude ? <InputLoading height="4vh" /> : <></>;
+      return <td key={i}>{tdContent}</td>;
     });
   };
 

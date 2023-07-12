@@ -34,18 +34,18 @@ export const fetchActiveLoans = createAsyncThunk(
     const removedInactiveDevices: Prestamo[] = data.data.map(
       (loan: Prestamo) => {
         const dispositivos = loan.dispositivos.filter(
-          (device: MetaDispositivo) => !!device.actives && device.actives > 0
+          (device: MetaDispositivo) => !!device.actives && device.actives > 0,
         );
 
         return {
           ...loan,
           dispositivos,
         };
-      }
+      },
     );
 
     return removedInactiveDevices;
-  }
+  },
 );
 
 ///////////////////////////

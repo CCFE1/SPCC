@@ -29,11 +29,11 @@ export const returnLoan = createAsyncThunk(
     const { data } = await axios.patch(
       `/api/v1/loan/return`,
       returnData,
-      config
+      config,
     );
-    
+
     return data;
-  }
+  },
 );
 
 ///////////////////////////

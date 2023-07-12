@@ -13,7 +13,7 @@ export const selectOption = (selectedItems: any, value: any): any => {
       }
 
       return item;
-    }
+    },
   );
 
   // Se aumenta la cantidad prestada
@@ -21,7 +21,7 @@ export const selectOption = (selectedItems: any, value: any): any => {
 
   // Verificar si existe el ultimo item en el array value
   const [result]: Item[] = value.filter(
-    (item: Item) => item.value === lastItem.value
+    (item: Item) => item.value === lastItem.value,
   );
   // Si existe el tag, modifica la cantidad, si no, agrega el nuevo item
   const tags: Item[] = !!result
@@ -49,7 +49,7 @@ export const selectOption = (selectedItems: any, value: any): any => {
 export const removeValue = (selected: any, values: Item[], options: Item[]) => {
   // Encontrar item eliminado
   const [itemDeleted]: Item[] = values.filter(
-    (value: Item) => !selected.some((item: Item) => value.value === item.value)
+    (value: Item) => !selected.some((item: Item) => value.value === item.value),
   );
   // Actualizar la opción eliminada
   options = options.map((option: Item) => {

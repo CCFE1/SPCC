@@ -86,7 +86,7 @@ function ModifyLoanForm() {
     dispatch(clearDevices());
     const devicesToSelect: (Item | undefined)[] = getDevicesToSelect(
       devices,
-      selectedLoan
+      selectedLoan,
     );
 
     // Resta la cantidad de prèstamo al dispositivo en la lista de dispositivos
@@ -123,7 +123,7 @@ function ModifyLoanForm() {
     // Obtener la informacion que se va a enviar
     const dataToSend: ModifyData[] = getDataToSend(
       selectedDevices,
-      selectedLoan
+      selectedLoan,
     );
 
     // La función dataToSend no recupera los dispositivos eliminados.
@@ -133,13 +133,13 @@ function ModifyLoanForm() {
 
     // Obtener los dispositivos que tengan cambios
     const changedDevices: ModifyData[] = dataToSend.filter(
-      (device: any) => device.operation !== "idle"
+      (device: any) => device.operation !== "idle",
     );
     // Si no hay dispositivos modificados o eliminados
     if (!changedDevices.length && !deletedDevices?.length && !aula) {
       openDialog(
         "Mensaje",
-        "No se han hecho cambios en el préstamo seleccionado"
+        "No se han hecho cambios en el préstamo seleccionado",
       );
       return;
     }
@@ -153,7 +153,7 @@ function ModifyLoanForm() {
         changedDevices,
         deletedDevices,
         aula,
-      })
+      }),
     )
       .unwrap()
       .then((result: any) => {
@@ -178,7 +178,7 @@ function ModifyLoanForm() {
       dispatch(setStatus(validationsResult.isValid));
       return openDialog(
         validationsResult.dialog.title,
-        validationsResult.dialog.description
+        validationsResult.dialog.description,
       );
     }
 
@@ -197,13 +197,13 @@ function ModifyLoanForm() {
           validationsResult.dialog.title,
           validationsResult.dialog.description,
           updateLoan,
-          args
+          args,
         );
       }
 
       return openDialog(
         validationsResult.dialog.title,
-        validationsResult.dialog.description
+        validationsResult.dialog.description,
       );
     }
 
@@ -241,7 +241,7 @@ function ModifyLoanForm() {
                 <Label
                   className={styles.marginLeft}
                   text={getDate(
-                    new Date(selectedLoan?.timelog.inicio as string)
+                    new Date(selectedLoan?.timelog.inicio as string),
                   )}
                   size="20px"
                 />

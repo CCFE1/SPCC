@@ -1,1 +1,1 @@
-export {default as GenerateReports} from "./generateReports/GenerateReports";
+export { default as GenerateReports } from "./generateReports/GenerateReports";

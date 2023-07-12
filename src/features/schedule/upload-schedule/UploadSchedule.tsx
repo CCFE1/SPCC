@@ -13,13 +13,13 @@ import {
 } from "./uploadScheduleSlice";
 
 const map: any = {
-  "EE": "EE",
+  EE: "EE",
   NRC: "NRC",
   LUNES: "LUNES",
   "LUNES-AULA": "LUNES-AULA",
   MARTES: "MARTES",
   "MARTES-AULA": "MARTES-AULA",
-  "MIÉRCOLES": "MIÉRCOLES",
+  MIÉRCOLES: "MIÉRCOLES",
   "MIÉRCOLES-AULA": "MIÉRCOLES-AULA",
   JUEVES: "JUEVES",
   "JUEVES-AULA": "JUEVES-AULA",
@@ -44,7 +44,7 @@ export default function UploadSchedule() {
     const body: any = {
       borrar,
       schedules: rows,
-    }
+    };
 
     // Subir los horarios transformados y la opción de eliminar los anteriores horarios.
     dispatch(uploadSchedules(body))
@@ -53,13 +53,13 @@ export default function UploadSchedule() {
         if (status === 200) {
           return openDialog(
             "Mensaje",
-            "Los horarios se subieron correctamente"
+            "Los horarios se subieron correctamente",
           );
         }
 
         openDialog(
           "Error",
-          "Algo salió mal al subir los horarios. Consulte a su administrador inmediatamente"
+          "Algo salió mal al subir los horarios. Consulte a su administrador inmediatamente",
         );
       })
       .catch((err) => {

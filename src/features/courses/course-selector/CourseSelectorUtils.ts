@@ -9,7 +9,7 @@ export const isNear = (course: any, areConsecutive: boolean): boolean => {
   const actualMinutes: number = getDecimalMinutes();
   const actualDate: string = getMDYDateString(new Date());
   const actualTime: Date = new Date(
-    `${actualDate} ${actualHour}:${actualMinutes}`
+    `${actualDate} ${actualHour}:${actualMinutes}`,
   );
 
   let existsNear = false;
