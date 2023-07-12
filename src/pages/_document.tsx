@@ -8,7 +8,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-        <link href="/assets/Roboto-Regular.ttf" rel="stylesheet" />
+        <link href="/assets/Roboto-Regular.ttf" type="font/ttf" />
       </Head>
       <body>
         <Main />

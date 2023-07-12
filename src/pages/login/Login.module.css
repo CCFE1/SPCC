@@ -1,5 +1,6 @@
 .login {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40% 1fr 40%;
   justify-content: center;
   align-items: center;
 
