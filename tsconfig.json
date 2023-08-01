@@ -29,7 +29,8 @@
       "@reports/*": ["src/features/reports/*"],
       "@courses/*": ["src/features/courses/*"],
       "@devices/*": ["src/features/devices/*"],
-      "@schedule/*": ["src/features/schedule/*"]
+      "@schedule/*": ["src/features/schedule/*"],
+      "@notifications/*": ["src/features/notifications/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

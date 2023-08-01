@@ -108,7 +108,7 @@ export const isDate1AfterDate2 = (date1: Date, date2: Date): boolean => {
 export const isBetweenDates = (
   dateToCompare: Date,
   initDate: Date,
-  finalDate: Date,
+  finalDate: Date
 ): boolean => {
   const init: Dayjs = dayjs(initDate);
   const final: Dayjs = dayjs(finalDate);
@@ -135,8 +135,9 @@ export const getTimeBetweenTwoHours = (initDate: Date, finalDate: Date) => {
 //////////////////////////////
 // JWT Utils
 /////////////////////////////
-export const decodeToken = (): any => {
-  const token: string | null = localStorage.getItem("token");
+export const decodeToken = (tokenString: string = ""): any => {
+  const token: string | null =
+    tokenString !== "" ? tokenString : localStorage.getItem("token");
   return !!token ? jwtDecode(token) : null;
 };
 
@@ -167,7 +168,7 @@ export const openAcceptDialog = (
   title: string,
   text: string | JSX.Element,
   callback: (args?: any) => void,
-  args?: any,
+  args?: any
 ) => {
   const content: any = typeof text === "string" ? { text } : { html: text };
   AlertDialog.fire({

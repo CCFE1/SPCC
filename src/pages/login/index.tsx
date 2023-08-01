@@ -26,7 +26,7 @@ export default function Login() {
             style={{
               textAlign: "center",
               fontSize: "1.8rem",
-              weight: "bold",
+              fontWeight: "bold",
               lineHeight: "2.2rem",
               color: "var(--white)",
             }}
@@ -34,7 +34,9 @@ export default function Login() {
             Sistema de Préstamos del <br /> Centro de Cómputo
           </span>
         </div>
-        <LoginFeature />
+        <div className="f-center">
+          <LoginFeature />
+        </div>
       </main>
     </>
   );

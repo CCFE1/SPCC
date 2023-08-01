@@ -4,9 +4,11 @@ import { Form } from "react-final-form";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 
-import { openDialog } from "@utils/index";
+import { openDialog, decodeToken } from "@utils/index";
 import { useAppDispatch } from "@store/hooks";
 import { InputMui, Label } from "@ui/index";
+
+import { setIsSnackbarOpen, setMessage } from "@notifications/slices";
 import styles from "./LoginForm.module.css";
 
 export default function LoginForm() {
@@ -30,8 +32,13 @@ export default function LoginForm() {
       .then((response: any) => {
         setIsLoading(false);
         if (response.status === 200) {
-          localStorage.setItem("token", response.data.token);
-          router.replace("/main");
+          //localStorage.setItem("token", response.data.token);
+          const { nickname } = decodeToken(response.data.token);
+          
+          dispatch(setMessage("Bienvenido " + nickname));
+          dispatch(setIsSnackbarOpen(true));
+
+          //router.replace("/main");
         }
       })
       .catch((error: any) => {
@@ -77,7 +84,7 @@ export default function LoginForm() {
 
             <div style={{ marginTop: ".5rem" }}>
               <Button type="submit" disabled={isLoading} variant="contained">
-                Login
+                {isLoading ? "Entrando...": "Login"}
               </Button>
             </div>
           </form>

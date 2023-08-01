@@ -9,6 +9,7 @@ import returnLoanReducer from "@loan/return-loan/returnLoanSlice";
 import loansListReducer from "@loan/loans-list/loansListSlice";
 import uploadScheduleReducer from "@schedule/upload-schedule/uploadScheduleSlice";
 import reportsReducer from "@reports/reportsSlice";
+import snackbarReducer from "@notifications/snackbar-notification/snackbarNotificationSlice";
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
     loansList: loansListReducer,
     uploadSchedule: uploadScheduleReducer,
     reports: reportsReducer,
+    snackbar: snackbarReducer,
   },
 });
 

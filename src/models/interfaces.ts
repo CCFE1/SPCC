@@ -5,3 +5,4 @@ export * from "./misc/devices";
 export * from "./misc/pages";
 export * from "./misc/schedule";
 export * from "./misc/api/utils";
+export * from "./misc/notifications";
