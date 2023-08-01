@@ -18,11 +18,19 @@ export default function LoginForm() {
   return (
     <Snackbar
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      autoHideDuration={2000}
+      autoHideDuration={1750}
       open={isOpen}
       onClose={handleClose}
-      message={message}
       key={"top-center-snackbar"}
-    />
+    >
+      <SnackbarContent
+        className="f-center"
+        style={{
+          backgroundColor: "#fff",
+          color: "#000",
+        }}
+        message={<span id="client-snackbar">{message}</span>}
+      />
+    </Snackbar>
   );
 }

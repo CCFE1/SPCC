@@ -32,13 +32,13 @@ export default function LoginForm() {
       .then((response: any) => {
         setIsLoading(false);
         if (response.status === 200) {
-          //localStorage.setItem("token", response.data.token);
+          localStorage.setItem("token", response.data.token);
           const { nickname } = decodeToken(response.data.token);
           
           dispatch(setMessage("Bienvenido " + nickname));
           dispatch(setIsSnackbarOpen(true));
 
-          //router.replace("/main");
+          router.replace("/main");
         }
       })
       .catch((error: any) => {
